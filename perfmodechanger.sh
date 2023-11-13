@@ -8,7 +8,7 @@ if [ `id -u` == 0 ] ; then
 fi
 
 #Automatic mode : Doesn't need any arguments and will only use Performance mode or Battery mode. Recommended for beginners.
-if [ $1 == "" ] ; then
+if [ $1 -eq "" ] ; then
 echo "checking power profile"
 powah=$(cat /sys/devices/virtual/thermal/thermal_message/sconfig)
 
