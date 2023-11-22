@@ -41,8 +41,13 @@ echo "seems like your device is in battery mode, changing to performance mode"
 echo 10 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 
-if [[ "$profile" == performance ]] ; then
+if [[ "$profile" == "performance" ]] ; then
 echo "seems like your device is in performance mode, changing to battery mode"
+echo 0 > /sys/devices/virtual/thermal/thermal_message/sconfig
+fi
+
+if [[ "$profile" == "mgame" ]] ; then
+echo "seems like your device is in mgame mode, changing to battery mode"
 echo 0 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 
@@ -69,8 +74,8 @@ if [[ "$choice" == "2" ]] ; then
 echo 20 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 
-if [[ "$choice" != "0" || "$choice" != "1" || "$choice" != "2" ]] ; then
-echo "wrong choice try again"
+if [[ "$choice" -ne "0" && "$choice" -ne "1" && "$choice" -ne "2" ]] ; then
+echo "wrong choice, try again"
 exit 1
 fi
 
@@ -84,12 +89,12 @@ echo 0 > /sys/devices/virtual/thermal/thermal_message/sconfig
 echo "power profile changed to battery"
 exit 1
 fi
-if [[ $1 == "10" ]] ; then
+if [[ $1 == "1" ]] ; then
 echo 10 > /sys/devices/virtual/thermal/thermal_message/sconfig
 echo "power profile changed to performance"
 exit 1
 fi
-if [[ $1 == "20" ]] ; then
+if [[ $1 == "2" ]] ; then
 echo 20 > /sys/devices/virtual/thermal/thermal_message/sconfig
 echo "power profile changed to mgame"
 exit 1
