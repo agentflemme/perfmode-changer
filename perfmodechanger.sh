@@ -56,7 +56,7 @@ fi
 
 if [[ $1 == "-i" ]] ; then
 profiler
-echo -e "Current power profile is $profile.\nAvailable power profiles :\n - Battery 0\n Nolimits (Performance+NoThermals) 1\n - MGame (Performance) 2"
+echo -e "Current power profile is $profile.\nAvailable power profiles :\n - Battery 0\n - Nolimits (Performance+NoThermals) 1\n - MGame (Performance) 2"
 read choice
 
 if [[ $choice == "0" ]] ; then
@@ -69,7 +69,7 @@ if [[ $choice == "2" ]] ; then
 echo 20 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 
-if [[ $choice -ne "0" ]] || [[ $choice -ne "1" ]] || [[ $choice -ne "2" ]] ; then
+if [[ $choice -ne "0" || $choice -ne "1" || $choice -ne "2" ]] ; then
 echo "wrong choice try again"
 exit 1
 fi
