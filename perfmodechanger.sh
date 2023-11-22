@@ -3,10 +3,18 @@ echo "welcome to this piece of crap tech made by agentflemme, lmao"
 #profiler function, detects current power plan
 function profiler {
 funnynumber=$(cat /sys/devices/virtual/thermal/thermal_message/sconfig)
-if [[ $funnynumber == "-1" ]] ; then ; profile=bugged ; fi
-if [[ $funnynumber == "0" ]] ; then ; profile=battery ; fi
-if [[ $funnynumber == "10" ]] ; then ; profile=performance ; fi
-if [[ $funnynumber == "20" ]] ; then ; profile=mgame ; fi
+if [[ $funnynumber == "-1" ]] ; then
+profile=bugged
+fi
+if [[ $funnynumber == "0" ]] ; then 
+profile=battery
+fi
+if [[ $funnynumber == "10" ]] ; then
+profile=performance
+fi
+if [[ $funnynumber == "20" ]] ; then
+profile=mgame 
+fi
 }
 
 #root status check
