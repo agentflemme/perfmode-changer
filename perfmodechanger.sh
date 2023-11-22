@@ -69,7 +69,7 @@ if [[ $choice == "2" ]] ; then
 echo 20 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 
-if [[ $choice -ne "0" || $choice -ne "1" || $choice -ne "2" ]] ; then
+if [[ $choice != "0" || $choice != "1" || $choice != "2" ]] ; then
 echo "wrong choice try again"
 exit 1
 fi
