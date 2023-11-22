@@ -59,7 +59,7 @@ profiler
 echo -e "Current power profile is $profile.\nAvailable power profiles :\n - Battery 0\n Nolimits (Performance+NoThermals) 1\n - MGame (Performance) 2"
 read choice
 
-if [[ $choice == "0" ]] ; then ; 
+if [[ $choice == "0" ]] ; then
 echo 0 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 if [[ $choice == "1" ]] ; then
