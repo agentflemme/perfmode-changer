@@ -31,17 +31,17 @@ if [[ $1 == "" ]] ; then
 echo "checking power profile"
 profiler
 
-if [[ $profile == "bugged" ]] ; then
+if [[ "$profile" == "bugged" ]] ; then
 echo "Power profile bugged, setting profile to battery"
 echo 0 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 
-if [[ $profile == "battery" ]] ; then
+if [[ "$profile" == "battery" ]] ; then
 echo "seems like your device is in battery mode, changing to performance mode"
 echo 10 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
 
-if [[ ${powah} == performance ]] ; then
+if [[ "$profile" == performance ]] ; then
 echo "seems like your device is in performance mode, changing to battery mode"
 echo 0 > /sys/devices/virtual/thermal/thermal_message/sconfig
 fi
